@@ -1,5 +1,5 @@
 ---
-title: "10.24exercise"
+title: "10.24exercise 11.13Resubmit"
 format: html
 editor: visual
 ---
@@ -108,8 +108,10 @@ ggplot(missing_grades_per_student, aes(x = Count)) +
 ```{r}
 #Question 13
 library(stringr)
+library(knitr)
+
 missing_online_test_grades_per_student <- long_format_grades %>%
-  filter(str_starts(name, "Online_MCQ")) %>%
+  filter(str_starts(name, "MCQ")) %>%
   group_by(Id) %>%
   summarise(MissingOnlineTests = sum(is.na(value)))
 
@@ -120,7 +122,7 @@ missing_online_test_grades_per_student
 ```{r}
 #Question 14
 missing_online_test_grades_per_student <- long_format_grades %>%
-  filter(str_starts(name, "Online_MCQ")) %>%
+  filter(str_starts(name, "MCQ")) %>%
   group_by(Id) %>%
   summarise(Count = sum(is.na(value)))
 
